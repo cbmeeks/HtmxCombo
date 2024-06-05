@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Paginated ComboBox</title>
+    <script type="text/javascript" th:src="@{js/tailwind.js}"></script>
+    <script type="text/javascript" defer th:src="@{js/htmx.js}"></script>
+    <script type="text/javascript" defer th:src="@{js/_hyperscript.js}"></script>
+    <script type="text/javascript" defer th:src="@{js/htmx-combo.js}"></script>
+</head>
+<body class="bg-gray-100">
+
+    <div class="w-full flex flex-col items-center justify-center p-8 mt-32">
+        <th:block th:include="fragments/combo :: combo"></th:block>
+        <p class="mt-8">
+            This is an element that is UNDER the combo.  I should not move!<br />
+            I should be right under the search input and the items should hover OVER me
+            and not push me down the screen!
+        </p>
+    </div>
+
+</body>
+</html>

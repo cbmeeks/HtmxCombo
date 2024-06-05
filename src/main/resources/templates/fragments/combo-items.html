@@ -1,0 +1,13 @@
+<li th:each="record: ${records}" class="w-full p-2 bg-white hover:bg-blue-200 hover:cursor-pointer"
+    th:id="${record.id}"
+    th:hx-get="|@{/hotels/select}/${record.id}|"
+    th:text="${record.name}"
+    hx-target="#search-block"
+    hx-swap="outerHTML">
+</li>
+<li th:if="${page < records.getTotalPages()}"
+    hx-trigger="intersect once"
+    hx-swap="afterend"
+    hx-target="closest li"
+    th:hx-get="|@{/hotels/search}?search=${search}&page=${page + 1}|">
+</li>

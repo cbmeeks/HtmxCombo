@@ -1,0 +1,25 @@
+<th:block th:fragment="combo">
+    <div id="search-block" class="w-96">
+        <div class="flex items-end">
+            <div class="">
+                <label for="search-input" class="font-bold">Hotels in Paris</label>
+                <input type="search" id="search-input" name="search" aria-label="Search" autocomplete="off"
+                       placeholder="Search..."
+                       th:hx-get="|@{/hotels/search}|"
+                       th:selected-id="${id}"
+                       th:value="${value}"
+                       hx-trigger="input changed delay:200ms, search, keydown[keyCode==40] delay:200ms once, click from:#search-arrow"
+                       hx-target="#search-items"
+                       class="h-12 relative p-2 mt-1 rounded-lg w-full bg-white shadow-lg border border-2 border-gray-300 border-r-0 rounded-r-none"/>
+            </div>
+            <span id="search-arrow" class="h-12 flex items-center bg-white shadow-r-lg border border-2 border-gray-300 border-l-0 hover:cursor-pointer">
+                <svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd"
+                      d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                      clip-rule="evenodd"/>
+                </svg>
+            </span>
+        </div>
+        <ul id="search-items" class="absolute max-h-96 w-96 overflow-auto shadow-lg"></ul>
+    </div>
+</th:block>
